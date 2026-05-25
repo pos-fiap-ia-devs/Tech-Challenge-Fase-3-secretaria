@@ -49,6 +49,18 @@ TEST_CASES = [
         "check_field": "resposta_final",
         "scenario": "Consulta Prontuário — DB",
     },
+    {
+        "relato": "Analisar exame de câncer de mama da paciente P002 com histórico familiar.",
+        "expected_keyword": "P002",
+        "check_field": "resposta_final",
+        "scenario": "Triagem Breast Cancer — P002 explícito (phase2_joblib_model)",
+    },
+    {
+        "relato": "Analisar exame de câncer de mama da paciente Carla Mendes.",
+        "expected_keyword": "Carla",
+        "check_field": "resposta_final",
+        "scenario": "Triagem Breast Cancer — Carla Mendes (name_match → P005)",
+    },
 ]
 
 

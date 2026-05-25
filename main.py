@@ -38,7 +38,7 @@ def obter_grafo_compilado(_llm, _buscar_contexto):
 
 
 def inicializar_sistema():
-    with st.status("Loading AI models...", expanded=True) as status:
+    with st.status("Carregando modelos de IA...", expanded=True) as status:
         llm, retriever, is_vector = carregar_motores_ia()
 
         def buscar_contexto(query):
@@ -53,7 +53,7 @@ def inicializar_sistema():
 
         st.session_state.graph_app = obter_grafo_compilado(llm, buscar_contexto)
         st.session_state.engines_ready = True
-        status.update(label="Ready", state="complete", expanded=False)
+        status.update(label="Pronto", state="complete", expanded=False)
 
 
 def recarregar_sistema():
@@ -131,7 +131,7 @@ else:
             st.markdown(msg["content"])
 
     # Input
-    if prompt := st.chat_input("Ask a question...", disabled=st.session_state.processing):
+    if prompt := st.chat_input("Faça uma pergunta clínica...", disabled=st.session_state.processing):
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.session_state.last_prompt = prompt
         st.session_state.processing  = True
@@ -140,18 +140,18 @@ else:
     # Resposta
     if st.session_state.processing and st.session_state.last_prompt:
         with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
+            with st.spinner("Processando..."):
                 try:
                     res = st.session_state.graph_app.invoke(
                         {"relato": st.session_state.last_prompt}
                     )
                     resposta = res["resposta_final"]
                     if res.get("protocolo_seguranca"):
-                        st.error("Safety protocol activated. Please seek immediate support.")
+                        st.error("⚠️ Protocolo de segurança ativado. Por favor, busque apoio imediato.")
                     st.markdown(resposta)
                     st.session_state.messages.append({"role": "assistant", "content": resposta})
                 except Exception as e:
-                    st.error(f"Error: {e}")
+                    st.error(f"Erro: {e}")
         st.session_state.processing  = False
         st.session_state.last_prompt = None
         st.rerun()

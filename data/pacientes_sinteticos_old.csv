@@ -1,0 +1,6 @@
+nome,nascimento,cpf_anonimizado,ultimo_papanicolau,ultima_mamografia,historico_familiar,observacoes
+Ana Silva,1985-05-20,***.***.***-01,2020,2023,Sem histórico de câncer na família.,Paciente assídua. Alergia a dipirona.
+Maria Oliveira,1998-03-12,***.***.***-02,2024,0,Mãe com histórico de câncer de mama.,Primigestas. Acompanhamento preventivo recomendado.
+Juliana Costa,1970-12-05,***.***.***-03,2019,2021,Avó com câncer de colo de útero.,Exames preventivos atrasados. Prioridade de agendamento.
+Fernanda Lima,1990-07-18,***.***.***-04,2023,0,Sem histórico relevante.,
+Carla Mendes,1963-02-28,***.***.***-05,2022,2022,Histórico de diabetes gestacional.,Pós-menopausa. Monitoramento anual.

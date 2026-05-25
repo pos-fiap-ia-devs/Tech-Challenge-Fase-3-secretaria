@@ -1,0 +1,46 @@
+{
+    "model_name": "breast_cancer_rf_ga",
+    "model_type": "RandomForestClassifier",
+    "dataset": "Breast Cancer Wisconsin Diagnostic Dataset",
+    "optimization": "Genetic Algorithm",
+    "target_mapping": {
+        "0": "benigno",
+        "1": "maligno"
+    },
+    "best_params": {
+        "n_estimators": 58,
+        "max_depth": 10,
+        "min_samples_split": 6,
+        "min_samples_leaf": 1,
+        "max_features": "log2",
+        "class_weight": "balanced",
+        "threshold": 0.5
+    },
+    "threshold": 0.5,
+    "metrics": {
+        "accuracy": 0.956140350877193,
+        "precision": 0.9743589743589743,
+        "recall": 0.9047619047619048,
+        "f1": 0.9382716049382716,
+        "f2": 0.9178743961352657,
+        "specificity": 0.9861111111111112,
+        "roc_auc": 0.9970238095238095,
+        "pr_auc": 0.9951137197124669,
+        "tn": 71,
+        "fp": 1,
+        "fn": 4,
+        "tp": 38
+    },
+    "intended_use": "apoio à triagem e priorização clínica em dados sintéticos",
+    "not_intended_use": [
+        "diagnóstico definitivo",
+        "prescrição médica",
+        "substituição de avaliação profissional"
+    ],
+    "limitations": [
+        "modelo treinado em dataset acadêmico",
+        "não utiliza imagens reais",
+        "não inclui histórico clínico completo",
+        "não possui variáveis demográficas suficientes para análise robusta de equidade"
+    ]
+}

@@ -1,0 +1,54 @@
+2026-05-23 23:22:33 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (CSV novo ou modificado)...
+2026-05-23 23:22:33 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-23 23:22:35 | WARNING  | consultas_medica.rag | RAG Engine falhou (Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download) — sem RAG disponível
+2026-05-23 23:25:39 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-23 23:25:39 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quais cuidados preventivos são importantes para saúde da mul'
+2026-05-23 23:25:39 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG MedQuAD
+2026-05-23 23:25:39 | INFO     | consultas_medica.nodes | etapa_prevencao | sem contexto RAG — LLM fallback
+2026-05-23 23:25:39 | DEBUG    | consultas_medica.nodes | invocar_llm | chamando LLM fine-tunada
+2026-05-23 23:25:41 | WARNING  | consultas_medica.nodes | invocar_llm | LLM falhou ([WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente) — usando fallback preventivo
+2026-05-23 23:25:41 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:25:41 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-23 23:25:41 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-23 23:26:07 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-23 23:26:07 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quando uma mulher deve fazer mamografia?'
+2026-05-23 23:26:07 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-23 23:26:07 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:26:07 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-23 23:26:07 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-23 23:26:13 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-23 23:26:13 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quando uma mulher deve fazer mamografia?'
+2026-05-23 23:26:13 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-23 23:26:13 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:26:13 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-23 23:26:13 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-23 23:26:23 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-23 23:26:23 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='analisar exame de câncer de mama da paciente p002 com histór'
+2026-05-23 23:26:23 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-23 23:26:23 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:26:23 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-23 23:26:23 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-23 23:55:52 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (CSV novo ou modificado)...
+2026-05-23 23:55:52 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-23 23:55:54 | WARNING  | consultas_medica.rag | RAG Engine falhou (Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download) — sem RAG disponível
+2026-05-23 23:56:14 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-23 23:56:14 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:56:14 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-23 23:56:14 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-23 23:56:23 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-23 23:56:23 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quando uma mulher deve fazer mamografia?'
+2026-05-23 23:56:23 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-23 23:56:23 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:56:23 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-23 23:56:23 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-23 23:56:31 | INFO     | consultas_medica.graph | Roteador → violencia
+2026-05-23 23:56:31 | WARNING  | consultas_medica.nodes | NÓ: VIOLÊNCIA — protocolo Lei Maria da Penha ativado
+2026-05-23 23:56:31 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:56:31 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-23 23:56:31 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-23 23:56:37 | INFO     | consultas_medica.graph | Roteador → urgencia
+2026-05-23 23:56:37 | WARNING  | consultas_medica.nodes | NÓ: URGÊNCIA | relato='Paciente grávida relata dor forte e sangramento.'
+2026-05-23 23:56:37 | INFO     | consultas_medica.nodes | invocar_llm | fallback urgência ativado
+2026-05-23 23:56:37 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-23 23:56:37 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-23 23:56:37 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)

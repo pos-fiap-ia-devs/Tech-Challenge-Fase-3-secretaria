@@ -1,6 +1,9 @@
-nome,nascimento,cpf_anonimizado,ultimo_papanicolau,ultima_mamografia,historico_familiar,observacoes
-Ana Silva,1985-05-20,***.***.***-01,2020,2023,Sem histórico de câncer na família.,Paciente assídua. Alergia a dipirona.
-Maria Oliveira,1998-03-12,***.***.***-02,2024,0,Mãe com histórico de câncer de mama.,Primigestas. Acompanhamento preventivo recomendado.
-Juliana Costa,1970-12-05,***.***.***-03,2019,2021,Avó com câncer de colo de útero.,Exames preventivos atrasados. Prioridade de agendamento.
-Fernanda Lima,1990-07-18,***.***.***-04,2023,0,Sem histórico relevante.,
-Carla Mendes,1963-02-28,***.***.***-05,2022,2022,Histórico de diabetes gestacional.,Pós-menopausa. Monitoramento anual.
+patient_id,nome,nascimento,cpf_anonimizado,ultimo_papanicolau,ultima_mamografia,historico_familiar,observacoes
+P001,Ana Silva,1985-05-20,***.***.***-01,2020,2023,Sem histórico de câncer na família.,Paciente assídua. Alergia a dipirona.
+P002,Maria Oliveira,1998-03-12,***.***.***-02,2024,0,Mãe com histórico de câncer de mama.,Primigesta. Acompanhamento preventivo recomendado.
+P003,Juliana Costa,1970-12-05,***.***.***-03,2019,2021,Avó com câncer de colo de útero.,Exames preventivos atrasados. Prioridade de agendamento.
+P004,Fernanda Lima,1990-07-18,***.***.***-04,2023,0,Sem histórico relevante.,
+P005,Carla Mendes,1963-02-28,***.***.***-05,2022,2022,Histórico de diabetes gestacional.,Pós-menopausa. Monitoramento anual.
+P006,Paciente P006,2000-06-15,***.***.***-06,2025,2025,Sem histórico familiar de câncer de mama.,Caso fictício complementar. Baixo risco preventivo. Exames de rotina em dia.
+P007,Paciente P007,1978-09-22,***.***.***-07,0,0,Sem histórico familiar de câncer de mama.,Caso fictício complementar. Dados preventivos incompletos.
+P008,Paciente P008,1976-04-02,***.***.***-08,2023,2023,Sem histórico familiar de câncer de mama.,Caso fictício complementar. Nódulo palpável leve mama esquerda. Perfil limítrofe-alto.

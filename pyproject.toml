@@ -21,5 +21,7 @@ dependencies = [
     "pandas>=3.0.2",
     "pydantic>=2.12.5",
     "pypdf>=6.9.2",
+    "scikit-learn>=1.6.0",
+    "joblib>=1.4.0",
     "streamlit>=1.56.0",
 ]
