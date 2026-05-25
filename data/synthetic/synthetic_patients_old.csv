@@ -1,9 +1,0 @@
-patient_id,nome_sintetico,idade,gestante,historico_familiar_cancer_mama,ultima_mamografia,ultimo_papanicolau,sintomas_relatados,observacoes
-P001,Paciente P001,41,não,não,2023-06-01,2020-03-01,Nenhum,Derivado de registro legado fictício. Paciente assídua. Alergia a dipirona. Atenção preventiva moderada — papanicolau desatualizado.
-P002,Paciente P002,28,sim,sim,nao_realizada,2024-03-01,Nenhum,Derivado de registro legado fictício. Primigesta. Mãe com histórico de câncer de mama. Maior atenção preventiva — mamografia não realizada.
-P003,Paciente P003,55,não,não,2021-06-01,2019-08-01,Nenhum,Derivado de registro legado fictício. Avó com histórico de câncer de colo de útero. Exames preventivos atrasados. Atenção preventiva moderada.
-P004,Paciente P004,35,não,não,nao_realizada,2023-05-01,Nenhum,Derivado de registro legado fictício. Sem histórico relevante. Mamografia não realizada. Atenção preventiva moderada.
-P005,Paciente P005,63,não,não,2022-03-01,2022-03-01,Nenhum,Derivado de registro legado fictício. Pós-menopausa. Histórico de diabetes gestacional. Monitoramento anual. Atenção preventiva moderada.
-P006,Paciente P006,26,não,não,2025-11-01,2025-11-01,Nenhum,Caso fictício complementar. Baixo risco preventivo. Exames de rotina em dia. Sem histórico familiar de câncer de mama.
-P007,Paciente P007,48,não,não,nao_realizada,nao_realizada,Nenhum,Caso fictício complementar. Dados preventivos incompletos. Mamografia e papanicolau não realizados ou não registrados.
-P008,Paciente P008,50,não,não,2023-09-01,2023-09-01,Nódulo palpável leve mama esquerda,Caso fictício complementar. Perfil limítrofe para demonstração acadêmica de triagem. Sem histórico familiar de câncer de mama.
