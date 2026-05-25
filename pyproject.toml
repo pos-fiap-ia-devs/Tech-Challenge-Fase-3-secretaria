@@ -1,0 +1,25 @@
+[project]
+name = "fiap-pos-tech-ia-para-devs-tech-challenge-fase-3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mlx-lm>=0.21.0",
+    "chromadb>=1.5.5",
+    "faiss-cpu>=1.13.2",
+    "google-generativeai>=0.8.6",
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "jupyter-client>=8.8.0",
+    "langchain-chroma>=1.1.0",
+    "langchain-community>=0.4.1",
+    "langchain-google-genai>=4.2.1",
+    "langchain-ollama>=1.0.1",
+    "langgraph>=1.1.6",
+    "deep-translator>=1.11.4",
+    "pandas>=3.0.2",
+    "pydantic>=2.12.5",
+    "pypdf>=6.9.2",
+    "streamlit>=1.56.0",
+]
