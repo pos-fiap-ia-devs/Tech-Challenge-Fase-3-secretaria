@@ -248,6 +248,8 @@ python -m src.tools.breast_cancer_phase2_tool  # carregamento do modelo RF+GA + 
 
 Modelo feito - https://huggingface.co/wellsondahostaraguaia/consultas-medica-saude-mulher
 
+Youtube = https://youtu.be/zNMtVKgQyso
+
 **Projeto**  - https://github.com/pos-fiap-ia-devs/Tech-Challenge-Fase-3-secretaria
 
 ---
