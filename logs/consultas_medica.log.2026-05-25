@@ -1,0 +1,5 @@
+2026-05-25 09:31:59 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-25 09:32:54 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-25 09:32:54 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-25 09:32:54 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-25 09:32:54 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)

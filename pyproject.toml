@@ -1,7 +1,7 @@
 [project]
 name = "fiap-pos-tech-ia-para-devs-tech-challenge-fase-3"
 version = "0.1.0"
-description = "Add your description here"
+description = "Assistente clínico de saúde da mulher — LangGraph + RAG + RF+GA (FIAP Tech Challenge Fase 3)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

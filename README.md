@@ -29,8 +29,9 @@ O **ConsultasMedica** é uma solução orquestrada que realiza triagens clínica
 │       ├── synthetic_patients.csv           # Pacientes sintéticas (fluxo Breast Cancer)
 │       └── synthetic_breast_exam_results.csv  # Exames simulados Wisconsin (30 features)
 ├── docs/
-│   ├── diagrama_langgraph.md        # Diagrama Mermaid do fluxo
+│   ├── diagrama_langgraph.md        # Diagrama Mermaid do fluxo LangGraph (6 nós)
 │   ├── diagrama_langgraph.png       # Diagrama PNG gerado
+│   ├── diagrama_rag_predicao.md     # Diagrama detalhado RAG + predição RF+GA
 │   ├── breast_cancer_flow.md        # Documentação do fluxo Breast Cancer
 │   ├── phase2_breast_cancer_model_card.md  # Model card do modelo RF+GA da Fase 2
 │   ├── project_context.md           # Contexto e escopo do projeto
@@ -244,7 +245,7 @@ python -m src.tools.breast_cancer_phase2_tool  # carregamento do modelo RF+GA + 
 **Autor:** [Wellson Almeida dos Santos]
 wellson.digital@gmail.com
 
-**Autor:** [Nelson Seiji Takahashi]
+**Autor:** [Nelson Seiji]
 seiji8503@gmail.com
 
 

@@ -24,6 +24,7 @@ _PALAVRAS_BLOQUEADAS = [
     "childhood", "pediatric", "neonatal", "infant", "newborn",
 ]
 
+# Filtra o MedQuAD por temas relevantes e bloqueados.
 
 def _eh_relevante(focus_area: str) -> bool:
     f = focus_area.lower()
@@ -229,7 +230,6 @@ def _carregar_protocolos(protocols_dir: str, base_dir: str) -> list[Document]:
     )
     return docs
 
-
 def inicializar_rag(embeddings_model):
     """Inicializa RAG com medquad.csv e data/protocols/*.md. Persiste FAISS em disco."""
     try:
@@ -259,6 +259,7 @@ def inicializar_rag(embeddings_model):
                 medquad_count,
                 len(protocol_docs),
             )
+            
             vectorstore = FAISS.from_documents(documents=docs, embedding=embeddings_model)
             os.makedirs(faiss_dir, exist_ok=True)
             vectorstore.save_local(faiss_dir)

@@ -39,7 +39,7 @@ def invocar_llm(llm, prompt, state):
     try:
         log.debug("invocar_llm | chamando LLM fine-tunada")
         resposta = llm.invoke(prompt)
-        return f"{resposta}\n\n---\n📚 *Source: MedQuAD/NIH*"
+        return f"{resposta}\n\n---\n📚 *Fonte: MedQuAD/NIH*"
     except Exception as exc:
         log.warning("invocar_llm | LLM falhou (%s) — usando fallback preventivo", exc)
         return (
@@ -64,8 +64,8 @@ def formatar_resposta_rag(contexto: str) -> str:
         if text:
             parts.append(text)
     if not parts:
-        return contexto + "\n\n---\n📚 *Source: MedQuAD/NIH*"
-    return "\n\n".join(parts) + "\n\n---\n📚 *Source: MedQuAD/NIH*"
+        return contexto + "\n\n---\n📚 *Fonte: MedQuAD/NIH*"
+    return "\n\n".join(parts) + "\n\n---\n📚 *Fonte: MedQuAD/NIH*"
 
 
 def _enriquecer_com_prontuario(relato: str) -> str:
@@ -100,7 +100,7 @@ def etapa_prevencao(llm, search_func, state: EstadoAtendimento):
             "*   **Frequência:** Os dois primeiros exames devem ser anuais. Se ambos estiverem "
             "normais, os próximos podem ser realizados **a cada 3 anos**.\n"
             "*   **Objetivo:** Detecção precoce de lesões precursoras.\n\n"
-            "---\n📚 *Source: MedQuAD/NIH*"
+            "---\n📚 *Fonte: MedQuAD/NIH*"
         )
         if ctx_paciente:
             resposta += f"\n\n---\n**📋 Dados do prontuário:**{ctx_paciente}"
@@ -114,7 +114,7 @@ def etapa_prevencao(llm, search_func, state: EstadoAtendimento):
             "*   **Frequência:** Recomendada a realização **a cada 2 anos**.\n"
             "*   **Nota:** Fora dessa faixa etária ou com histórico familiar, "
             "a indicação deve ser avaliada individualmente pelo seu médico.\n\n"
-            "---\n📚 *Source: MedQuAD/NIH*"
+            "---\n📚 *Fonte: MedQuAD/NIH*"
         )
         if ctx_paciente:
             resposta += f"\n\n---\n**📋 Dados do prontuário:**{ctx_paciente}"
@@ -177,7 +177,7 @@ def etapa_obstetricia(llm, search_func, state: EstadoAtendimento):
             "2. **Primeira Consulta:** Agende sua consulta de pré-natal o quanto antes.\n"
             "3. **Exames Iniciais:** Prepare-se para realizar exames de sangue e ultrassom "
             "de primeiro trimestre.\n\nComo posso te ajudar?\n\n"
-            "---\n📚 *Source: MedQuAD/NIH*"
+            "---\n📚 *Fonte: MedQuAD/NIH*"
         )
         if ctx_paciente:
             resposta += f"\n\n---\n**📋 Dados do prontuário:**{ctx_paciente}"
@@ -215,7 +215,7 @@ def etapa_prontuario(state: EstadoAtendimento):
                     f"*   **Última Mamografia:** {paciente['ultima_mamografia'] or 'Não registrado'}\n"
                     f"*   **Histórico Familiar:** {paciente['historico_familiar'] or '—'}\n"
                     f"*   **Observações:** {paciente['observacoes'] or '—'}\n\n"
-                    f"---\n📚 *Source: prontuarios.db*"
+                    f"---\n📚 *Fonte: prontuarios.db*"
                 )
                 log.info("etapa_prontuario | paciente encontrado: %s", nome)
                 return {"nivel_risco": "VERDE", "resposta_final": resposta}

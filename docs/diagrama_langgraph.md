@@ -4,23 +4,26 @@
 flowchart TD
     START([__start__]) -->|classificar_relato| roteador
 
-    roteador{{"🔀 classificar_relato\nsangramento / dor forte / aguda\nmarido / violencia / medo\ngrávida / parto / gestação\nprontuário / histórico de\ndemais casos"}}
+    roteador{{"🔀 classificar_relato\nsangramento / dor forte / aguda\nmarido / violencia / medo\ngrávida / parto / gestação\nanalisar exame / triagem de mama / P00X\nprontuário / histórico de\ndemais casos"}}
 
     roteador -->|sangramento / dor forte / aguda| urgencia
     roteador -->|marido / violencia / medo / briga| violencia
     roteador -->|grávida / parto / gestação| obstetricia
+    roteador -->|"analisar exame de mama / triagem / P00X"| breast_cancer
     roteador -->|prontuário / histórico de| prontuario
     roteador -->|demais casos| prevencao
 
     urgencia["🚑 etapa_urgencia\nProtocolo FEBRASGO — emergência\nnivel_risco = VERMELHO"]
     violencia["⚖️ etapa_violencia\nProtocolo Lei Maria da Penha\nnivel_risco = VERMELHO"]
     obstetricia["🤰 etapa_obstetricia\nProtocolo Pré-Natal OMS/MS\nnivel_risco = AMARELO"]
+    breast_cancer["🎀 etapa_breast_cancer\nTriagem acadêmica RF+GA Fase 2\nRAG breast_cancer_screening.md\nnivel_risco = VERMELHO / AMARELO / VERDE"]
     prontuario["📋 etapa_prontuario\nConsulta SQLite prontuarios.db\nnivel_risco = VERDE"]
     prevencao["🏥 etapa_prevencao\nDiretrizes INCA/MS + RAG MedQuAD\nnivel_risco = VERDE"]
 
     urgencia --> seguranca_etica
     violencia --> seguranca_etica
     obstetricia --> seguranca_etica
+    breast_cancer --> seguranca_etica
     prontuario --> seguranca_etica
     prevencao --> seguranca_etica
 
@@ -30,6 +33,7 @@ flowchart TD
     style urgencia fill:#ff4b4b,color:#fff
     style violencia fill:#9b59b6,color:#fff
     style obstetricia fill:#3498db,color:#fff
+    style breast_cancer fill:#e91e63,color:#fff
     style prontuario fill:#1abc9c,color:#fff
     style prevencao fill:#27ae60,color:#fff
     style seguranca_etica fill:#f39c12,color:#fff

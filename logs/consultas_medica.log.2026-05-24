@@ -1,0 +1,251 @@
+2026-05-24 01:08:43 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 01:08:57 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 01:08:57 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quando uma mulher deve fazer mamografia?'
+2026-05-24 01:08:57 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 01:08:57 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 01:08:57 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 01:08:57 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 01:09:06 | INFO     | consultas_medica.graph | Roteador → violencia
+2026-05-24 01:09:06 | WARNING  | consultas_medica.nodes | NÓ: VIOLÊNCIA — protocolo Lei Maria da Penha ativado
+2026-05-24 01:09:06 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 01:09:06 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 01:09:06 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 01:09:17 | INFO     | consultas_medica.graph | Roteador → urgencia
+2026-05-24 01:09:17 | WARNING  | consultas_medica.nodes | NÓ: URGÊNCIA | relato='Paciente grávida relata dor forte e sangramento.'
+2026-05-24 01:09:17 | INFO     | consultas_medica.nodes | invocar_llm | fallback urgência ativado
+2026-05-24 01:09:17 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 01:09:17 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 01:09:17 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 09:19:20 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (CSV novo ou modificado)...
+2026-05-24 09:19:20 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-24 09:19:22 | WARNING  | consultas_medica.rag | RAG Engine falhou (Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download) — sem RAG disponível
+2026-05-24 09:19:30 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 09:19:30 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 09:19:30 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 09:19:31 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 09:19:43 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 09:19:43 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato=' quando uma mulher deve fazer mamografia?'
+2026-05-24 09:19:43 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 09:19:43 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 09:19:43 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 09:19:43 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 12:58:49 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (fontes novas ou modificadas)...
+2026-05-24 12:58:49 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-24 12:58:49 | INFO     | consultas_medica.rag | Protocolos | 1 arquivo(s) Markdown encontrado(s) em C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\protocols
+2026-05-24 12:58:49 | INFO     | consultas_medica.rag | Protocolos | 17 chunk(s) de protocolo adicionado(s)
+2026-05-24 12:58:49 | INFO     | consultas_medica.rag | RAG | total de documentos a indexar: 1172 (MedQuAD=1155, protocolos=17)
+2026-05-24 12:58:51 | WARNING  | consultas_medica.rag | RAG Engine falhou (Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download) — sem RAG disponível
+2026-05-24 12:59:09 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 12:59:09 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 12:59:09 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 12:59:09 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 13:03:15 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (fontes novas ou modificadas)...
+2026-05-24 13:03:15 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-24 13:03:15 | INFO     | consultas_medica.rag | Protocolos | 1 arquivo(s) Markdown encontrado(s) em C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\protocols
+2026-05-24 13:03:15 | INFO     | consultas_medica.rag | Protocolos | 17 chunk(s) de protocolo adicionado(s)
+2026-05-24 13:03:15 | INFO     | consultas_medica.rag | RAG | total de documentos a indexar: 1172 (MedQuAD=1155, protocolos=17)
+2026-05-24 13:03:17 | WARNING  | consultas_medica.rag | RAG Engine falhou (Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download) — sem RAG disponível
+2026-05-24 13:24:36 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (fontes novas ou modificadas)...
+2026-05-24 13:24:37 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-24 13:24:37 | INFO     | consultas_medica.rag | Protocolos | 1 arquivo(s) Markdown encontrado(s) em C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\protocols
+2026-05-24 13:24:37 | INFO     | consultas_medica.rag | Protocolos | 17 chunk(s) de protocolo adicionado(s)
+2026-05-24 13:24:37 | INFO     | consultas_medica.rag | RAG | total de documentos a indexar: 1172 (MedQuAD=1155, protocolos=17)
+2026-05-24 13:30:46 | INFO     | consultas_medica.rag | RAG | índice salvo em disco: 1172 documentos
+2026-05-24 13:34:48 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 13:34:53 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 13:34:53 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 13:34:53 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 13:34:53 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 13:58:14 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 14:01:49 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 14:01:50 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 14:01:50 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 14:01:50 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 14:25:06 | INFO     | consultas_medica.rag | RAG | construindo índice FAISS (fontes novas ou modificadas)...
+2026-05-24 14:25:06 | INFO     | consultas_medica.rag | MedQuAD | 1155 documentos relevantes carregados
+2026-05-24 14:25:06 | INFO     | consultas_medica.rag | Protocolos | 1 arquivo(s) Markdown encontrado(s) em C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\protocols
+2026-05-24 14:25:06 | INFO     | consultas_medica.rag | Protocolos | breast_cancer_screening.md — 63 seção(ões) identificada(s)
+2026-05-24 14:25:06 | INFO     | consultas_medica.rag | Protocolos | 63 seção(ões) parseada(s), 63 chunk(s) indexado(s)
+2026-05-24 14:25:06 | INFO     | consultas_medica.rag | RAG | total de documentos a indexar: 1218 (MedQuAD=1155, protocolos=63)
+2026-05-24 14:30:51 | INFO     | consultas_medica.rag | RAG | índice salvo em disco: 1218 documentos
+2026-05-24 14:32:07 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 14:33:43 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 14:33:43 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 14:33:43 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 14:33:43 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 16:04:56 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 16:06:56 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 16:06:57 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 16:06:57 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 16:06:57 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 16:21:08 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 16:21:22 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 16:21:22 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 16:21:22 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 16:21:22 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 16:33:45 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 16:35:22 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 16:35:23 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 16:35:23 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 16:35:23 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 16:40:53 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 16:42:58 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 16:42:59 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 16:42:59 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 16:42:59 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 16:48:12 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 16:48:28 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 16:48:29 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 16:48:29 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 16:48:29 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 16:52:41 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 16:53:04 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 16:53:04 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 16:53:04 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 16:53:04 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 17:40:00 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 17:42:17 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 17:42:18 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 17:42:18 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 17:42:18 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 17:45:35 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 17:45:35 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 17:45:35 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 17:45:35 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 17:45:56 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 17:45:57 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 17:45:57 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 17:45:57 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 19:15:53 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 22:29:42 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 22:29:52 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 22:29:55 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 22:29:55 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 22:29:55 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=AMARELO)
+2026-05-24 22:30:33 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 22:30:33 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 22:30:33 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 22:30:33 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 22:31:13 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 22:31:13 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 22:31:13 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 22:31:13 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 22:31:54 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 22:31:55 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 22:31:55 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 22:31:55 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 22:32:16 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 22:32:16 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 22:32:16 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 22:32:16 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 23:03:46 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 23:04:07 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:04:15 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:04:15 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 23:04:15 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 23:04:27 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:04:27 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:04:27 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 23:04:27 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 23:05:15 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:05:15 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:05:15 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:05:15 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:05:58 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 23:05:58 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='analise os resultados'
+2026-05-24 23:05:58 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG MedQuAD
+2026-05-24 23:05:58 | INFO     | consultas_medica.nodes | etapa_prevencao | sem contexto RAG — LLM fallback
+2026-05-24 23:05:58 | DEBUG    | consultas_medica.nodes | invocar_llm | chamando LLM fine-tunada
+2026-05-24 23:05:59 | WARNING  | consultas_medica.nodes | invocar_llm | LLM falhou (model requires more system memory (20.3 GiB) than is available (17.2 GiB) (status code: 500)) — usando fallback preventivo
+2026-05-24 23:05:59 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:05:59 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:05:59 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:06:09 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:06:09 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:06:09 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 23:06:09 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 23:07:24 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 23:07:24 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='what is breast cancer?'
+2026-05-24 23:07:24 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG MedQuAD
+2026-05-24 23:07:24 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG retornou contexto — bypass LLM
+2026-05-24 23:07:24 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:07:24 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:07:24 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:07:29 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 23:07:29 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='who is at risk for breast cancer?'
+2026-05-24 23:07:29 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG MedQuAD
+2026-05-24 23:07:30 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG retornou contexto — bypass LLM
+2026-05-24 23:07:30 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:07:30 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:07:30 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:09:41 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 23:09:41 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quando fazer mamografia?'
+2026-05-24 23:09:41 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 23:09:41 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:09:41 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:09:41 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:09:51 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 23:09:51 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='o que e mamografia?'
+2026-05-24 23:09:51 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 23:09:51 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:09:51 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:09:51 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:12:55 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 23:39:53 | INFO     | consultas_medica.graph | Roteador → prevencao (breast_cancer_educational_question)
+2026-05-24 23:39:53 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='o que é cancer de mama?'
+2026-05-24 23:39:53 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 23:39:53 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:39:53 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:39:53 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:40:01 | INFO     | consultas_medica.graph | Roteador → prevencao (breast_cancer_educational_question)
+2026-05-24 23:40:01 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='o que é mamografia?'
+2026-05-24 23:40:01 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 23:40:01 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:40:01 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:40:01 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:40:05 | INFO     | consultas_medica.graph | Roteador → prevencao (breast_cancer_educational_question)
+2026-05-24 23:40:05 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='quais sintomas de cancer de mama?'
+2026-05-24 23:40:05 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 23:40:05 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:40:05 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:40:05 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:40:24 | INFO     | consultas_medica.graph | Roteador → prevencao (breast_cancer_educational_question)
+2026-05-24 23:40:24 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='me fale sobre prevencao de cancer de mama'
+2026-05-24 23:40:24 | INFO     | consultas_medica.nodes | etapa_prevencao | mamografia match
+2026-05-24 23:40:24 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:40:24 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:40:24 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:40:42 | INFO     | consultas_medica.graph | Roteador → prevencao
+2026-05-24 23:40:42 | INFO     | consultas_medica.nodes | NÓ: PREVENÇÃO | relato='analise os resultados da paciente p008'
+2026-05-24 23:40:42 | INFO     | consultas_medica.nodes | etapa_prevencao | RAG MedQuAD
+2026-05-24 23:40:43 | INFO     | consultas_medica.nodes | etapa_prevencao | sem contexto RAG — LLM fallback
+2026-05-24 23:40:43 | DEBUG    | consultas_medica.nodes | invocar_llm | chamando LLM fine-tunada
+2026-05-24 23:40:44 | WARNING  | consultas_medica.nodes | invocar_llm | LLM falhou (model requires more system memory (20.3 GiB) than is available (19.9 GiB) (status code: 500)) — usando fallback preventivo
+2026-05-24 23:40:44 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:40:44 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:40:44 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:41:53 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:42:02 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:42:02 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 23:42:02 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)
+2026-05-24 23:42:08 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:42:08 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:42:08 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:42:08 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=AMARELO)
+2026-05-24 23:42:49 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:42:49 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:42:49 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:42:49 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:53:19 | INFO     | consultas_medica.rag | RAG | carregando índice FAISS do disco (C:\Github-Nelson\fiap-ia-tech-challenge-3-women-health-rag\data\faiss_index)
+2026-05-24 23:53:33 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:53:35 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:53:35 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:53:35 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERDE)
+2026-05-24 23:53:54 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:53:54 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:53:54 | INFO     | consultas_medica.nodes | Filtro ético: resposta aprovada
+2026-05-24 23:53:54 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=AMARELO)
+2026-05-24 23:54:16 | INFO     | consultas_medica.graph | Roteador → breast_cancer
+2026-05-24 23:54:16 | INFO     | consultas_medica.nodes | NÓ: FILTRO ÉTICO
+2026-05-24 23:54:16 | INFO     | consultas_medica.nodes | Filtro ético: bypass — resposta de protocolo de emergência (risco VERMELHO)
+2026-05-24 23:54:16 | INFO     | consultas_medica.db | DB | atendimento registrado (risco=VERMELHO)

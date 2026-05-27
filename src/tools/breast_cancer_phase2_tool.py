@@ -1,15 +1,15 @@
 """
-Breast Cancer Phase 2 Tool — FemCare AI (FIAP Tech Challenge Phase 3)
+Tool Breast Cancer Fase 2 — FemCare AI (Tech Challenge FIAP Fase 3)
 
-Academic triage-support module inspired by Phase 2 work:
+Módulo acadêmico de apoio à triagem inspirado no trabalho da Fase 2:
   - Breast Cancer Wisconsin Dataset
-  - Random Forest optimized with a Genetic Algorithm
-  - Focus on recall and reducing false negatives
+  - Random Forest otimizado com Algoritmo Genético
+  - Foco em recall e redução de falsos negativos
 
-IMPORTANT — Clinical disclaimer:
-  This tool does NOT provide a definitive cancer diagnosis.
-  It classifies clinical attention levels to support screening workflows.
-  All outputs must be reviewed by qualified healthcare professionals.
+IMPORTANTE — Aviso clínico:
+  Esta tool NÃO fornece diagnóstico definitivo de câncer.
+  Classifica níveis de atenção clínica para apoiar fluxos de triagem.
+  Todas as saídas devem ser revisadas por profissionais de saúde qualificados.
 """
 
 from __future__ import annotations
@@ -25,7 +25,7 @@ import pandas as pd
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Phase 2 documented metrics (Random Forest + Genetic Algorithm)
+# Métricas documentadas da Fase 2 (Random Forest + Algoritmo Genético)
 # ---------------------------------------------------------------------------
 PHASE2_MODEL_METRICS: dict[str, float] = {
     "recall": 0.952381,
@@ -33,7 +33,7 @@ PHASE2_MODEL_METRICS: dict[str, float] = {
     "precision": 0.952381,
 }
 
-# Six features for rule-based fallback only
+# Seis features usadas apenas no fallback baseado em regras
 FEATURE_KEYS: tuple[str, ...] = (
     "radius_mean",
     "texture_mean",
@@ -43,7 +43,7 @@ FEATURE_KEYS: tuple[str, ...] = (
     "concave_points_mean",
 )
 
-# Full Wisconsin feature set (Phase 3 synthetic exams, underscore names)
+# Conjunto completo Wisconsin (exames sintéticos Fase 3, nomes com underscore)
 PHASE3_FEATURE_KEYS: tuple[str, ...] = (
     "radius_mean",
     "texture_mean",
@@ -77,7 +77,7 @@ PHASE3_FEATURE_KEYS: tuple[str, ...] = (
     "fractal_dimension_worst",
 )
 
-# Thresholds derived from Wisconsin benign/malignant mean midpoints (Phase 2 context).
+# Limiares derivados dos pontos médios benigno/maligno do Wisconsin (contexto Fase 2).
 _WISCONSIN_THRESHOLDS: dict[str, float] = {
     "radius_mean": 14.81,
     "texture_mean": 19.73,
@@ -100,35 +100,35 @@ _MODEL_CANDIDATE_PATHS: tuple[Path, ...] = (
 )
 
 _LIMITATIONS_TEXT = (
-    "This output is a triage-support result from an academic MVP. "
-    "It does not represent a definitive diagnosis and must not be used "
-    "to prescribe treatment or replace professional medical evaluation."
+    "Este resultado é apoio à triagem acadêmica de um MVP. "
+    "Não representa diagnóstico definitivo e não deve ser usado "
+    "para prescrever tratamento ou substituir avaliação médica profissional."
 )
 
 _POSITIVE_CLASS_CANDIDATES: tuple[Any, ...] = ("M", 1, "malignant", "maligno")
 
 
 def _normalize_key(key: str) -> str:
-    """Normalize dictionary keys to snake_case-like lowercase strings."""
+    """Normaliza chaves de dicionário para strings minúsculas no estilo snake_case."""
     return key.strip().lower().replace("-", "_").replace(" ", "_")
 
 
 def _normalize_mapping(data: dict[str, Any] | None) -> dict[str, Any]:
-    """Return a copy of *data* with normalized keys; empty dict if input is None."""
+    """Retorna cópia de *data* com chaves normalizadas; dict vazio se a entrada for None."""
     if not data:
         return {}
     return {_normalize_key(str(k)): v for k, v in data.items()}
 
 
 def _resolve_patient_id(patient_data: dict[str, Any]) -> str | None:
-    """Extract a patient identifier from common synthetic-data field names."""
+    """Extrai identificador de paciente a partir de nomes comuns em dados sintéticos."""
     normalized = _normalize_mapping(patient_data)
     patient_id = normalized.get("patient_id") or normalized.get("id") or normalized.get("nome")
     return str(patient_id) if patient_id is not None else None
 
 
 def _to_float(value: Any) -> float | None:
-    """Convert a value to float when possible."""
+    """Converte um valor para float quando possível."""
     if value is None or str(value).strip() == "":
         return None
     try:
@@ -138,7 +138,7 @@ def _to_float(value: Any) -> float | None:
 
 
 def _compute_feature_availability(features: dict[str, float]) -> tuple[list[str], list[str]]:
-    """Availability for rule-based fallback (6 features)."""
+    """Disponibilidade para fallback baseado em regras (6 features)."""
     available = [key for key in FEATURE_KEYS if key in features]
     missing = [key for key in FEATURE_KEYS if key not in features]
     return available, missing
@@ -146,10 +146,10 @@ def _compute_feature_availability(features: dict[str, float]) -> tuple[list[str]
 
 def _extract_exam_features(exam_data: dict[str, Any]) -> dict[str, float]:
     """
-    Pull Wisconsin numeric features from exam_data (up to 30 Phase 3 keys).
+    Extrai features numéricas Wisconsin de exam_data (até 30 chaves da Fase 3).
 
-    Accepts underscore names and spaced variants (e.g. concave points_mean).
-    Does not invent missing values.
+    Aceita nomes com underscore e variantes com espaço (ex.: concave points_mean).
+    Não inventa valores ausentes.
     """
     normalized = _normalize_mapping(exam_data)
     features: dict[str, float] = {}
@@ -160,7 +160,7 @@ def _extract_exam_features(exam_data: dict[str, Any]) -> dict[str, float]:
             continue
         parsed = _to_float(raw)
         if parsed is None:
-            logger.warning("Feature '%s' present but not numeric — skipped", feature)
+            logger.warning("Feature '%s' presente mas não numérica — ignorada", feature)
             continue
         features[feature] = parsed
 
@@ -168,7 +168,7 @@ def _extract_exam_features(exam_data: dict[str, Any]) -> dict[str, float]:
 
 
 def _feature_value_for_model_name(model_name: str, features: dict[str, float]) -> float | None:
-    """Resolve a model column name to a value in the features dict."""
+    """Resolve um nome de coluna do modelo para um valor no dicionário de features."""
     if model_name in features:
         return features[model_name]
 
@@ -181,9 +181,9 @@ def _feature_value_for_model_name(model_name: str, features: dict[str, float]) -
 
 def _adapt_feature_names_for_model(features: dict[str, float], model: Any) -> dict[str, float]:
     """
-    Map underscore feature dict to names expected by model.feature_names_in_.
+    Mapeia dict de features com underscore para os nomes esperados em model.feature_names_in_.
 
-    Handles concave_points_* vs concave points_* automatically via normalization.
+    Trata concave_points_* vs concave points_* automaticamente via normalização.
     """
     expected = getattr(model, "feature_names_in_", None)
     if expected is None:
@@ -203,7 +203,7 @@ def _compute_model_feature_availability(
     features: dict[str, float],
     model: Any,
 ) -> tuple[list[str], list[str]]:
-    """Available/missing features using model.feature_names_in_ when present."""
+    """Features disponíveis/ausentes usando model.feature_names_in_ quando presente."""
     expected = getattr(model, "feature_names_in_", None)
     if expected is None:
         available = [key for key in PHASE3_FEATURE_KEYS if key in features]
@@ -226,9 +226,9 @@ def _build_model_dataframe(
     model: Any,
 ) -> tuple[pd.DataFrame | None, list[str], list[str]]:
     """
-    Build a single-row DataFrame ordered exactly as the model expects.
+    Monta DataFrame de uma linha na ordem exata esperada pelo modelo.
 
-    Returns (None, available, missing) when required columns are absent.
+    Retorna (None, available, missing) quando colunas obrigatórias estão ausentes.
     """
     adapted = _adapt_feature_names_for_model(features, model)
     expected = getattr(model, "feature_names_in_", None)
@@ -251,37 +251,37 @@ def _build_model_dataframe(
 
 def _load_phase2_model() -> tuple[Any | None, bool, str | None]:
     """
-    Load Phase 2 Random Forest from joblib/pkl candidate paths.
+    Carrega Random Forest da Fase 2 a partir de caminhos candidatos joblib/pkl.
 
-    Returns:
+    Retorna:
         (model, model_loaded, model_path)
     """
     for path in _MODEL_CANDIDATE_PATHS:
         if not path.is_file():
             continue
-        logger.info("Attempting to load Phase 2 model from: %s", path)
+        logger.info("Tentando carregar modelo da Fase 2 em: %s", path)
         try:
             model = joblib.load(path)
         except Exception:
-            logger.exception("Failed to load model from %s — trying next candidate", path)
+            logger.exception("Falha ao carregar modelo de %s — tentando próximo candidato", path)
             continue
 
         if not hasattr(model, "predict_proba"):
-            logger.error("Loaded object at %s lacks predict_proba — trying next candidate", path)
+            logger.error("Objeto carregado em %s não possui predict_proba — tentando próximo candidato", path)
             continue
 
-        logger.info("Phase 2 model loaded successfully from %s", path)
+        logger.info("Modelo da Fase 2 carregado com sucesso de %s", path)
         return model, True, str(path)
 
     logger.info(
-        "Phase 2 model not found — candidate paths: %s",
+        "Modelo da Fase 2 não encontrado — caminhos candidatos: %s",
         [str(p) for p in _MODEL_CANDIDATE_PATHS],
     )
     return None, False, None
 
 
 def _load_pickle_model() -> tuple[Any | None, bool]:
-    """Compatibility wrapper around _load_phase2_model."""
+    """Wrapper de compatibilidade em torno de _load_phase2_model."""
     model, loaded, _ = _load_phase2_model()
     return model, loaded
 
@@ -290,7 +290,7 @@ def _resolve_positive_class_index(
     model: Any,
     probabilities: Any,
 ) -> tuple[int, str]:
-    """Pick malignant / positive class index for predict_proba output."""
+    """Escolhe índice/classe positiva (maligno) na saída de predict_proba."""
     classes = getattr(model, "classes_", None)
     if classes is not None:
         class_list = list(classes)
@@ -298,7 +298,7 @@ def _resolve_positive_class_index(
             if label in class_list:
                 idx = class_list.index(label)
                 logger.info(
-                    "Positive class resolved — index=%d label=%s",
+                    "Classe positiva resolvida — index=%d label=%s",
                     idx,
                     label,
                 )
@@ -306,26 +306,25 @@ def _resolve_positive_class_index(
         idx = len(class_list) - 1
         label = str(class_list[idx])
         logger.info(
-            "Positive class resolved — index=%d label=%s (last class)",
+            "Classe positiva resolvida — index=%d label=%s (última classe)",
             idx,
             label,
         )
         return idx, label
 
     idx = len(probabilities) - 1
-    logger.info("Positive class resolved — index=%d label=last_column (no classes_)", idx)
+    logger.info("Classe positiva resolvida — index=%d label=last_column (sem classes_)", idx)
     return idx, "last_column"
-
 
 def _predict_with_model(
     model: Any,
     features: dict[str, float],
 ) -> tuple[float | None, dict[str, Any]]:
     """
-    Run predict_proba on the loaded Phase 2 model using a feature-aligned DataFrame.
+    Executa predict_proba no modelo da Fase 2 carregado usando DataFrame alinhado às features.
 
-    Returns:
-        (probability, metadata) — probability is None when inference cannot run.
+    Retorna:
+        (probability, metadata) — probability é None quando a inferência não pode ser executada.
     """
     frame, available, missing = _build_model_dataframe(features, model)
     expected = getattr(model, "feature_names_in_", None)
@@ -341,7 +340,7 @@ def _predict_with_model(
 
     if frame is None:
         logger.warning(
-            "Model inference skipped — missing features (%d): %s",
+            "Inferência do modelo ignorada — features ausentes (%d): %s",
             len(missing),
             missing,
         )
@@ -354,15 +353,15 @@ def _predict_with_model(
         metadata["positive_class_index"] = positive_index
         return float(probabilities[positive_index]), metadata
     except Exception:
-        logger.exception("predict_proba failed on Phase 2 model")
+        logger.exception("predict_proba falhou no modelo da Fase 2")
         return None, metadata
 
 
 def _rule_based_probability(features: dict[str, float]) -> float:
     """
-    Simple rule-based fallback when no model inference is available.
+    Fallback simples baseado em regras quando não há inferência do modelo.
 
-    Uses only FEATURE_KEYS and _WISCONSIN_THRESHOLDS.
+    Usa apenas FEATURE_KEYS e _WISCONSIN_THRESHOLDS.
     """
     fallback_features = {k: features[k] for k in FEATURE_KEYS if k in features}
 
@@ -389,7 +388,7 @@ def _rule_based_probability(features: dict[str, float]) -> float:
 
 
 def _map_probability_to_risk(probability: float) -> tuple[str, str, str]:
-    """Map model probability to cautious Portuguese clinical-attention labels."""
+    """Mapeia probabilidade do modelo para rótulos cautelosos de atenção clínica em português."""
     if probability >= 0.70:
         return (
             "alto",
@@ -410,7 +409,7 @@ def _map_probability_to_risk(probability: float) -> tuple[str, str, str]:
 
 
 def _patient_context_snippet(patient_data: dict[str, Any]) -> str:
-    """Build a short, non-diagnostic patient context line for the explanation."""
+    """Monta linha curta de contexto da paciente, sem linguagem diagnóstica."""
     normalized = _normalize_mapping(patient_data)
     parts: list[str] = []
 
@@ -445,14 +444,11 @@ def _build_explanation(
     probability: float,
     inference_method: str,
 ) -> str:
-    """Compose a cautious natural-language explanation (Portuguese, triage-oriented)."""
+    """Compõe explicação em linguagem natural cautelosa (português, orientada à triagem)."""
     context = _patient_context_snippet(patient_data)
 
     if inference_method == "phase2_joblib_model":
         method_note = "modelo Random Forest + GA da Fase 2 (joblib)"
-        method_article = "O"
-    elif inference_method == "phase2_pkl":
-        method_note = "modelo Random Forest da Fase 2 (arquivo .pkl)"
         method_article = "O"
     else:
         method_note = "regras simplificadas inspiradas no Wisconsin Dataset (fallback acadêmico)"
@@ -482,35 +478,35 @@ def _build_explanation(
 
 def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:
     """
-    Analyze a synthetic breast-cancer screening case (Phase 3 integration entry point).
+    Analisa um caso sintético de triagem de câncer de mama (ponto de entrada Fase 3).
 
-    Uses Phase 2 joblib model when available; falls back to rule-based scoring otherwise.
+    Usa modelo joblib da Fase 2 quando disponível; caso contrário, pontuação baseada em regras.
     """
-    logger.info("analyze_breast_cancer_case started")
+    logger.info("analyze_breast_cancer_case iniciada")
 
     patient_id = _resolve_patient_id(patient_data)
     if patient_id:
-        logger.info("Patient context resolved — patient_id=%s", patient_id)
+        logger.info("Contexto da paciente resolvido — patient_id=%s", patient_id)
     else:
-        logger.warning("patient_id not found in patient_data — continuing with anonymous case")
+        logger.warning("patient_id não encontrado em patient_data — continuando com caso anônimo")
 
     if not exam_data:
-        logger.warning("exam_data is empty — inference will rely on fallback defaults")
+        logger.warning("exam_data vazio — inferência usará defaults do fallback")
 
     features = _extract_exam_features(exam_data)
     available_features, missing_features = _compute_feature_availability(features)
 
-    logger.info("Extracted exam features (%d keys): %s", len(features), list(features.keys()))
+    logger.info("Features do exame extraídas (%d chaves): %s", len(features), list(features.keys()))
     if available_features:
         logger.info(
-            "Fallback feature availability (%d/%d): %s",
+            "Disponibilidade de features do fallback (%d/%d): %s",
             len(available_features),
             len(FEATURE_KEYS),
             available_features,
         )
     if missing_features:
         logger.warning(
-            "Missing fallback features (%d/%d): %s",
+            "Features ausentes no fallback (%d/%d): %s",
             len(missing_features),
             len(FEATURE_KEYS),
             missing_features,
@@ -536,7 +532,7 @@ def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:
         else:
             model_feature_count = len(PHASE3_FEATURE_KEYS)
 
-        logger.info("Attempting inference with Phase 2 model at %s", model_path)
+        logger.info("Tentando inferência com modelo da Fase 2 em %s", model_path)
         probability, predict_meta = _predict_with_model(model, features)
         model_available_features = list(predict_meta.get("model_available_features") or [])
         model_missing_features = list(predict_meta.get("model_missing_features") or [])
@@ -547,24 +543,24 @@ def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:
         if probability is not None:
             inference_method = "phase2_joblib_model"
             logger.info(
-                "Inference succeeded via phase2_joblib_model — probability=%.4f",
+                "Inferência bem-sucedida via phase2_joblib_model — probability=%.4f",
                 probability,
             )
         else:
             model_inference_failed = True
             inference_method = "rule_based_fallback"
             logger.warning(
-                "Phase 2 model inference failed — switching to rule_based_fallback "
+                "Inferência do modelo da Fase 2 falhou — alternando para rule_based_fallback "
                 "(model_loaded=True, missing=%s)",
                 model_missing_features,
             )
     else:
         model_loaded = False
-        logger.info("Using rule_based_fallback (no valid Phase 2 model available)")
+        logger.info("Usando rule_based_fallback (nenhum modelo válido da Fase 2 disponível)")
 
     if probability is None:
         probability = _rule_based_probability(features)
-        logger.info("Rule-based fallback probability computed: %.4f", probability)
+        logger.info("Probabilidade do fallback baseado em regras calculada: %.4f", probability)
 
     probability = round(float(probability), 4)
     risk_level, prediction_label, recommended_action = _map_probability_to_risk(probability)
@@ -580,7 +576,7 @@ def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:
             has_family_history = bool(family_flag)
 
         if has_family_history and risk_level == "baixo":
-            logger.info("Risk escalated to moderado due to family history (triage heuristic)")
+            logger.info("Risco elevado para moderado devido a histórico familiar (heurística de triagem)")
             risk_level = "moderado"
             prediction_label = "atenção clínica moderada (histórico familiar)"
             recommended_action = (
@@ -613,7 +609,7 @@ def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:
     }
 
     logger.info(
-        "analyze_breast_cancer_case finished — patient_id=%s inference_method=%s "
+        "analyze_breast_cancer_case concluída — patient_id=%s inference_method=%s "
         "probability=%.4f risk_level=%s model_loaded=%s model_path=%s",
         patient_id or "anonymous",
         inference_method,
@@ -627,7 +623,7 @@ def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:
 
 
 def _sample_exam_p002() -> dict[str, float]:
-    """30-feature synthetic exam aligned with P002 (higher attention)."""
+    """Exame sintético com 30 features alinhado a P002 (maior atenção)."""
     return {
         "radius_mean": 18.9,
         "texture_mean": 23.8,
@@ -663,7 +659,7 @@ def _sample_exam_p002() -> dict[str, float]:
 
 
 def _sample_exam_p006() -> dict[str, float]:
-    """30-feature synthetic exam aligned with P006 (lower attention)."""
+    """Exame sintético com 30 features alinhado a P006 (menor atenção)."""
     return {
         "radius_mean": 10.6,
         "texture_mean": 15.3,
@@ -701,18 +697,18 @@ def _sample_exam_p006() -> dict[str, float]:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(name)s | %(message)s")
 
-    print("=== FemCare AI — Breast Cancer Phase 2 Tool (local test) ===\n")
+    print("=== FemCare AI — Tool Breast Cancer Fase 2 (teste local) ===\n")
 
     model_probe, model_probe_loaded, model_probe_path = _load_phase2_model()
     if model_probe_loaded and model_probe is not None:
         names = getattr(model_probe, "feature_names_in_", None)
-        print(f"[MODEL] loaded from {model_probe_path}")
-        print(f"[MODEL] feature_names_in_ ({len(names) if names is not None else 0}):")
+        print(f"[MODELO] carregado de {model_probe_path}")
+        print(f"[MODELO] feature_names_in_ ({len(names) if names is not None else 0}):")
         print(list(names) if names is not None else "N/A")
     else:
-        print("[MODEL] not loaded — rule_based_fallback expected")
+        print("[MODELO] não carregado — rule_based_fallback esperado")
 
-    print("\n[P002 — higher attention, 30 features]")
+    print("\n[P002 — maior atenção, 30 features]")
     result_p002 = analyze_breast_cancer_case(
         {"patient_id": "P002", "idade": 28, "historico_familiar_cancer_mama": True},
         _sample_exam_p002(),
@@ -725,7 +721,7 @@ if __name__ == "__main__":
     print(f"model_missing_features={result_p002.get('model_missing_features')}")
     print(json.dumps(result_p002, indent=2, ensure_ascii=False))
 
-    print("\n[P006 — lower attention, 30 features]")
+    print("\n[P006 — menor atenção, 30 features]")
     result_p006 = analyze_breast_cancer_case(
         {"patient_id": "P006", "idade": 52, "historico_familiar_cancer_mama": False},
         _sample_exam_p006(),
@@ -738,7 +734,7 @@ if __name__ == "__main__":
     print(f"model_missing_features={result_p006.get('model_missing_features')}")
     print(json.dumps(result_p006, indent=2, ensure_ascii=False))
 
-    print("\n[PARTIAL EXAM — 6 features only]")
+    print("\n[EXAME PARCIAL — apenas 6 features]")
     result_partial = analyze_breast_cancer_case(
         {"patient_id": "P001", "idade": 45},
         {
