@@ -1,4 +1,4 @@
-# 🩺 ConsultasMedica - Assistente Clínico de Saúde da Mulher
+# 🩺 ConsultasMedica - Assistente Clínico de Saúde da Mulher - SECRETARIA
 ### FIAP | Pós Tech IA para Devs - Tech Challenge Fase 3
 
 Este projeto apresenta um Assistente Clínico Inteligente desenvolvido com foco em **Saúde da Mulher**, utilizando tecnologias de IA generativa de ponta com execução **100% local** para garantir a máxima privacidade dos dados sensíveis (LGPD).
@@ -95,8 +95,8 @@ O **ConsultasMedica** é uma solução orquestrada que realiza triagens clínica
 
 ### Passo 1: Clonar o Repositório
 ```bash
-git clone git@github.com:pos-fiap-ia-devs/Tech-Challenge-Fase-3.git
-cd Tech-Challenge-Fase-3
+git@github.com:pos-fiap-ia-devs/Tech-Challenge-Fase-3-secretaria.git
+cd Tech-Challenge-Fase-3-secretaria
 ```
 
 ### Passo 2: Baixar Modelos Locais (Ollama)
@@ -242,14 +242,13 @@ python -m src.tools.breast_cancer_phase2_tool  # carregamento do modelo RF+GA + 
 **FIAP - Pós Tech IA para Devs**   
 **Tech Challenge - Fase 3**  
 
-**Autor:** [Wellson Almeida dos Santos]
-wellson.digital@gmail.com
+**Autor:** [Wellson Almeida dos Santos] - (rm369201) (wellson.digital@gmail.com) 
 
-**Autor:** [Nelson Seiji]
-seiji8503@gmail.com
+**Autor:** [Nelson Seiji] - (rm370089) (seiji8503@gmail.com) 
 
+Modelo feito - https://huggingface.co/wellsondahostaraguaia/consultas-medica-saude-mulher
 
-**Projeto**  - https://github.com/pos-fiap-ia-devs/Tech-Challenge-Fase-3
+**Projeto**  - https://github.com/pos-fiap-ia-devs/Tech-Challenge-Fase-3-secretaria
 
 ---
 > [!NOTE]
