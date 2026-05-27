@@ -679,6 +679,8 @@ def _split_rag_sentences(text: str) -> list[str]:
     return sentences
 
 
+# !!! Monta consulta para RAG utilizando contexto com termos cílinios e nível de risco !!!
+
 def _build_rag_query(relato: str, risk_level: str | None = None) -> str:
     """
     Monta consulta bilíngue contextualizada para o fluxo Breast Cancer.
@@ -1134,6 +1136,8 @@ def _build_rag_summary(
         {"rag_available": True, "rag_payload": rag_payload}
     )
 
+
+# !!! Monta consulta para RAG e realiza busca !!!
 
 def _get_rag_context(search_func, relato: str) -> dict[str, Any]:
     """

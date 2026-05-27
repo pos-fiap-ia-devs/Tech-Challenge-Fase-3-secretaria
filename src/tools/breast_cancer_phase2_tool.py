@@ -316,6 +316,9 @@ def _resolve_positive_class_index(
     logger.info("Classe positiva resolvida — index=%d label=last_column (sem classes_)", idx)
     return idx, "last_column"
 
+# !!! Função de predição que aplica o modelo da Fase 2!!!
+
+
 def _predict_with_model(
     model: Any,
     features: dict[str, float],
@@ -474,6 +477,9 @@ def _build_explanation(
         f"para padrão que requer atenção clínica, com base em: {features_text}. "
         "Este resultado é apoio à triagem e não confirma a presença de câncer."
     )
+
+
+# !!! Função que gera texto exibindo e interpretando score!!!
 
 
 def analyze_breast_cancer_case(patient_data: dict, exam_data: dict) -> dict:

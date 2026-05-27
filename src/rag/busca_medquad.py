@@ -230,6 +230,8 @@ def _carregar_protocolos(protocols_dir: str, base_dir: str) -> list[Document]:
     )
     return docs
 
+# !!! Função que localiza dados e fontes e gera embeddings e índice FAISS !!!
+
 def inicializar_rag(embeddings_model):
     """Inicializa RAG com medquad.csv e data/protocols/*.md. Persiste FAISS em disco."""
     try:
@@ -260,6 +262,7 @@ def inicializar_rag(embeddings_model):
                 len(protocol_docs),
             )
             
+            # !!! Transforma texto em vetor usando embeddings_model!!!
             vectorstore = FAISS.from_documents(documents=docs, embedding=embeddings_model)
             os.makedirs(faiss_dir, exist_ok=True)
             vectorstore.save_local(faiss_dir)
