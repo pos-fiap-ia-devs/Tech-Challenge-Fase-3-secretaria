@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     A["Usuário"] --> B["Streamlit main.py"]
     B --> C["graph_app.invoke"]
@@ -43,3 +44,4 @@ flowchart TD
     AA --> AB["Safety validator"]
     AB --> AC["Audit log JSONL e SQLite"]
     AB --> AD["Resposta final ao usuário"]
+```

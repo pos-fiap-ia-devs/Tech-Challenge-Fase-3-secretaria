@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
 
     A["Usuário digita pergunta no Streamlit"] --> B["main.py recebe o prompt"]
@@ -146,3 +147,4 @@ flowchart TD
         Z1 --> Z2["Streamlit exibe resposta com st.markdown"]
         S5 --> Z3["Sidebar mostra histórico e auditoria"]
     end
+```
